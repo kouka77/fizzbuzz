@@ -15,6 +15,7 @@ def fizzbuzz(nbr):
         print("Buzz")
     else:
         print(nbr)
+
 # append threads
 threads = [threading.Thread(target=fizzbuzz, args=(i,)) for i in range(DEBUT, FIN+1)]
 # Start all threads
