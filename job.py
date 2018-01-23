@@ -1,22 +1,32 @@
 """Fizzbuzz Program"""
 
 import threading
+# lock to synchronize the message printing
+lock = threading.Lock()
 DEBUT = 1
 FIN = 100
 
-def fizzbuzz(nbr):
+
+def printmsg(msg):
     """Print job"""
+    global lock
+    lock.acquire()
+    print(msg)
+    lock.release()
+
+def fizzbuzz(nbr):
+    """Fizzbuzz job"""
     if nbr % 3 == 0:
         if nbr % 5 == 0:
-            print("FizzBuzz")
+            printmsg("FizzBuzz")
         else:
-            print("Fizz")
+            printmsg("Fizz")
     elif nbr % 5 == 0:
-        print("Buzz")
+        printmsg("Buzz")
     else:
-        print(nbr)
+        printmsg(nbr)
 
-# append threads
+# Append threads
 threads = [threading.Thread(target=fizzbuzz, args=(i,)) for i in range(DEBUT, FIN+1)]
 # Start all threads
 for t in threads:
