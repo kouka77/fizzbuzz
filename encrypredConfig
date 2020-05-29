@@ -1,0 +1,43 @@
+topologyName = FBN
+debug = false
+numWorkers = 35
+Max_Spout_Pending = 100
+zkhost =  zookeeper.europe-west2-c.c.centered-accord-266509.internal:2181,datanode.europe-west2-c.c.centered-accord-266509.internal:2181,datanode3.europe-west2-c.c.centered-accord-266509.internal:2181,datanode4.europe-west2-c.c.centered-accord-266509.internal:2181,datanode6.europe-west2-c.c.centered-accord-266509.internal:2181
+inputTopic = ssltopic
+outputTopic = sampleoutput
+KafkaBroker = kafka.europe-west2-c.c.centered-accord-266509.internal:6667,kafka2.europe-west2-c.c.centered-accord-266509.internal:6667
+consumerGroup=id3
+#this is the hbase table name
+#Find server1,server2,server3 in your configuration ambari>HBASE>advanced>hbase.zookeeper.quorum
+HbaseZquorum = namenode
+hbaseZooPort = 2181
+hbaseMasterPort = 16000
+#Find zookeeper.znode.parent in your configuration ambari>HBASE>advanced>zookeeper.znode.parent
+zooZnodeParent = /hbase-unsecure
+spoutId = SSL_SPOUT
+socketTimeoutMs = 1000
+fetchSizeBytes = 1000000
+HBwriteBufferSize = 10485
+#default offset is 1000
+offsetCommitPeriodMs = 50
+maxUncommittedOffsets = 10000000
+pollTimeoutMs = 10
+numSpout = 25
+numConverter = 9
+numPrediction = 25
+numFilter = 7
+numHbase = 6
+numTaskSpout = 25
+numTasksPrediction = 25
+numTaskConverter = 9
+numTaskFilter = 7
+numTaskHbase = 6
+scoreAttack=80
+soketIOServerURL=http://datanode5:9000
+soketIOServerURL=http://dev:5000
+socketIOSecret=thisisverysecretstuff
+jweKey=cbJ1tFI_2BhcUWqoGJvqXpicjZa9A6yuo_9VShub4FQ
+# duration to block IP: ?(s,m,h,d)
+blockIPDuration=5m
+PhoenixStringConnexion = jdbc:phoenix:zookeeper.europe-west2-c.c.centered-accord-266509.internal,datanode.europe-west2-c.c.centered-accord-266509.internal,datanode3.europe-west2-c.c.centered-accord-266509.internal,datanode4.europe-west2-c.c.centered-accord-266509.internal,datanode6.europe-west2-c.c.centered-accord-266509.internal:2181:/hbase-unsecure
+
